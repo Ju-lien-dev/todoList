@@ -4,9 +4,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const cors = require('cors');
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
+
 
 const options = {
     definition: {
@@ -16,10 +14,15 @@ const options = {
             version: '1.0.0',
         },
     },
-    apis: ['./app.js'],
+    apis: ['./app.js'], // files containing annotations as above
 };
 
 const openapiSpecification = swaggerJsdoc(options);
+
+const app = express();
+app.use(cors());
+
+app.use(bodyParser.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification, {
     customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
