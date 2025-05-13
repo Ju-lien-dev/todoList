@@ -9,7 +9,7 @@ fetch("http://localhost:3000/todos")
   .then((res) => res.json())
   .then((data) => {
     let total = data[0].todolist.length;
-    taskNumber.textContent = "Nombre total de taches = " + total;
+    taskNumber.textContent = "Nombre total de tâches = " + total;
     console.log(data[0].todolist);
     let done = 0;
     let todo = 0;
@@ -22,8 +22,8 @@ fetch("http://localhost:3000/todos")
       }
     });
 
-    taskDone.textContent = "taches faites =" + " " + done;
-    taskToDo.textContent = "taches à faire = " + " " + todo;
+    taskDone.textContent = "tâches faites =" + " " + done;
+    taskToDo.textContent = "tâches à faire = " + " " + todo;
 
     const ctx = document.getElementById("myChart");
     const pieDiv = document.createElement("div");

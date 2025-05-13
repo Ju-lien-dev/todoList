@@ -212,9 +212,9 @@ fetch("http://localhost:3000/todos")
         let button = document.createElement("button");
         let buttonSup = document.createElement("button");
         p.textContent = item.text;
-        button.textContent = "Récupérer la tache";
+        button.textContent = "Récupérer la tâche";
         buttonSup.textContent = "supprimer";
-        titre.textContent = "Taches suprimées";
+        titre.textContent = "Dernière tâche supprimée";
 
         deletedDiv.append(titre, card);
         card.appendChild(p);
