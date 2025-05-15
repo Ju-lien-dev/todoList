@@ -4,10 +4,6 @@ let nom = localStorage.getItem("name");
 let list2 = [];
 let taskList = [];
 let finalList = [];
-const API_BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000"
-    : "https://todolist-3v1x8xbr1-julien-devs-projects-94d0fe5d.vercel.app";
 
 function updateFinalList() {
   finalList = [...taskList, ...list2];
@@ -37,7 +33,7 @@ if (nom !== null) {
 const savedTasks = JSON.parse(localStorage.getItem("Taches")) || [];
 list2.push(...savedTasks);
 
-fetch(`${API_BASE_URL}/todos`)
+fetch("http://localhost:3000/todos")
   .then((res) => res.json())
   .then((data) => {
     taskList.push(...data[0].todolist);
@@ -124,7 +120,7 @@ fetch(`${API_BASE_URL}/todos`)
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch(`${API_BASE_URL}/todos`, {
+      fetch("http://localhost:3000/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
