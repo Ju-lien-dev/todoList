@@ -3,15 +3,7 @@ const bodyParser = require("body-parser");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const cors = require("cors");
-
-app.use(
-  cors({
-    origin: "*", // ou mets ici "https://ton-site.vercel.app" si tu veux le restreindre
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-    credentials: false,
-  })
-);
+const app = express();
 
 const options = {
   definition: {
@@ -26,7 +18,6 @@ const options = {
 
 const openapiSpecification = swaggerJsdoc(options);
 
-const app = express();
 app.use(
   cors({
     origin: "*",
