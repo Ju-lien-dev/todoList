@@ -5,7 +5,9 @@ const taskDone = document.createElement("h3");
 const taskToDo = document.createElement("h3");
 
 // informations à récupérer sur le serveur
-fetch("http://localhost:3000/todos")
+fetch(
+  "https://5c8b-2a02-8428-7603-6e01-d89f-a594-198-ca00.ngrok-free.app/todos"
+)
   .then((res) => res.json())
   .then((data) => {
     let total = data[0].todolist.length;

@@ -122,13 +122,16 @@ fetch(
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch("http://localhost:3000/todos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newTask),
-      })
+      fetch(
+        "https://5c8b-2a02-8428-7603-6e01-d89f-a594-198-ca00.ngrok-free.app/todos",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTask),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           list2.push(newTask);
