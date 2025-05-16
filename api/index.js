@@ -319,3 +319,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 const serverless = require("serverless-http");
 module.exports.handler = serverless(app);
+
+const port = 3000;
+app.listen(port, () => {
+  console.log(`🚀 Serveur démarré sur http://localhost:${port}`);
+});
