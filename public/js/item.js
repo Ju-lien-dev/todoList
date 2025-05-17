@@ -158,7 +158,7 @@ fetch("http://localhost:3000/todos/")
           is_complete: !task.is_complete,
         };
 
-        fetch(`http://localhost:3000/todos/${taskId}`, {
+        fetch(`http://localhost:3000/todos/${taskId}/`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
