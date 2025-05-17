@@ -33,7 +33,7 @@ if (nom !== null) {
 const savedTasks = JSON.parse(localStorage.getItem("Taches")) || [];
 list2.push(...savedTasks);
 
-fetch("http://localhost:3000/todos")
+fetch("http://localhost:3000/todos/")
   .then((res) => res.json())
   .then((data) => {
     taskList.push(...data[0].todolist);
@@ -120,7 +120,7 @@ fetch("http://localhost:3000/todos")
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch("http://localhost:3000/todos", {
+      fetch("http://localhost:3000/todos/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

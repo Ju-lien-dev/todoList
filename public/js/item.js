@@ -94,14 +94,14 @@ buttonCxl.addEventListener("click", (e) => {
 });
 
 buttonSup.addEventListener("click", () => {
-  fetch("http://localhost:3000/todos")
+  fetch("http://localhost:3000/todos/")
     .then((res) => res.json())
     .then((data) => {
       const todoList = data[0].todolist;
       const task = todoList.find((t) => t.id == taskId);
       console.log(task);
       localStorage.setItem("deletedItem", JSON.stringify(task));
-      fetch(`http://localhost:3000/todos/${taskId}`, {
+      fetch(`http://localhost:3000/todos/${taskId}/`, {
         method: "DELETE",
       }).then((res) => {
         if (res.ok) {
@@ -114,7 +114,7 @@ buttonSup.addEventListener("click", () => {
     });
 });
 
-fetch("http://localhost:3000/todos")
+fetch("http://localhost:3000/todos/")
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
