@@ -101,16 +101,16 @@ buttonSup.addEventListener("click", () => {
       const task = todoList.find((t) => t.id == taskId);
       console.log(task);
       localStorage.setItem("deletedItem", JSON.stringify(task));
-      fetch(`http://localhost:3000/todos/${taskId}`, { method: "DELETE" }).then(
-        (res) => {
-          if (res.ok) {
-            alert("Tâche supprimée avec succès !");
-            window.location.href = "tasks.html";
-          } else {
-            alert("Erreur lors de la suppression.");
-          }
+      fetch(`http://localhost:3000/todos/${taskId}`, {
+        method: "DELETE",
+      }).then((res) => {
+        if (res.ok) {
+          alert("Tâche supprimée avec succès !");
+          window.location.href = "tasks.html";
+        } else {
+          alert("Erreur lors de la suppression.");
         }
-      );
+      });
     });
 });
 

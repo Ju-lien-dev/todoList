@@ -33,9 +33,7 @@ if (nom !== null) {
 const savedTasks = JSON.parse(localStorage.getItem("Taches")) || [];
 list2.push(...savedTasks);
 
-fetch(
-  "https://5c8b-2a02-8428-7603-6e01-d89f-a594-198-ca00.ngrok-free.app/todos"
-)
+fetch("http://localhost:3000/todos")
   .then((res) => res.json())
   .then((data) => {
     taskList.push(...data[0].todolist);
@@ -122,16 +120,13 @@ fetch(
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch(
-        "https://5c8b-2a02-8428-7603-6e01-d89f-a594-198-ca00.ngrok-free.app/todos",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newTask),
-        }
-      )
+      fetch("http://localhost:3000/todos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTask),
+      })
         .then((res) => res.json())
         .then(() => {
           list2.push(newTask);
