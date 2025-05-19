@@ -33,7 +33,7 @@ if (nom !== null) {
 const savedTasks = JSON.parse(localStorage.getItem("Taches")) || [];
 list2.push(...savedTasks);
 
-fetch("http://localhost:3000/todos")
+fetch("https://todoback-beta.vercel.app/todos")
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
@@ -122,7 +122,7 @@ fetch("http://localhost:3000/todos")
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch("http://localhost:3000/todos", {
+      fetch("https://todoback-beta.vercel.app/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -185,6 +185,8 @@ fetch("http://localhost:3000/todos")
         flexDirection: "column",
         alignItems: "center",
       });
+
+      // permet ici de transférer une information, ici une ID dans l url
 
       const url = "item.html?id=";
 
