@@ -13,7 +13,7 @@ const options = {
       version: "1.0.0",
     },
   },
-  apis: ["./app.js"], // files containing annotations as above
+  apis: ["./index.js"], // files containing annotations as above
 };
 
 const openapiSpecification = swaggerJsdoc(options);
@@ -165,6 +165,7 @@ const todos = [
  *                 $ref: '#/components/schemas/Todo'
  */
 app.get("/todos", (req, res) => {
+  console.log("get todos");
   res.status(200).json(todos);
 });
 
@@ -315,7 +316,10 @@ app.delete("/todos/:id", (req, res) => {
   }
 });
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
-
+//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Serveur démarré sur http://localhost:${PORT}`);
+});
 const serverless = require("serverless-http");
 module.exports.handler = serverless(app);

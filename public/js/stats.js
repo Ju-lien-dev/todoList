@@ -5,7 +5,7 @@ const taskDone = document.createElement("h3");
 const taskToDo = document.createElement("h3");
 
 // informations à récupérer sur le serveur
-fetch("/api/todos/")
+fetch("http://localhost:3000/todos")
   .then((res) => res.json())
   .then((data) => {
     let total = data[0].todolist.length;

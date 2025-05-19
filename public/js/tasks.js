@@ -33,9 +33,11 @@ if (nom !== null) {
 const savedTasks = JSON.parse(localStorage.getItem("Taches")) || [];
 list2.push(...savedTasks);
 
-fetch("/api/todos/")
+fetch("http://localhost:3000/todos")
   .then((res) => res.json())
   .then((data) => {
+    console.log(data);
+
     taskList.push(...data[0].todolist);
 
     updateFinalList();
@@ -120,7 +122,7 @@ fetch("/api/todos/")
         Tags: [tags],
         is_complete: state === "true",
       };
-      fetch("/api/todos/", {
+      fetch("http://localhost:3000/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
